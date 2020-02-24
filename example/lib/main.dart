@@ -1,12 +1,9 @@
-import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
+import 'package:tflite/tflite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image/image.dart' as img;
-
-import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() => runApp(new App());
@@ -40,7 +37,7 @@ class _MyAppState extends State<MyApp> {
   bool _busy = false;
 
   Future predictImagePicker() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image == null) return;
     setState(() {
       _busy = true;

@@ -32,6 +32,10 @@ android {
         disable 'InvalidPackage'
     }
 
+    aaptOptions {
+        noCompress 'tflite'
+        noCompress 'lite'
+    }
     dependencies {
         compile 'org.tensorflow:tensorflow-lite:+'
     }
